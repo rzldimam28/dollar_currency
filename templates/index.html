@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <title>Currency Exchange Website</title>
+</head>
+<body>
+
+  <div class="container">
+    <h1 class="text-center">Currency Exchange Website</h1>
+    <p class="font-weight-bold font-italic">note: only can convert from USD</p>
+    <hr>
+    <form method="POST">
+      <div class="row d-flex justify-content-center">
+        <div class="col-3">
+          <label for="from">From</label>
+          {% if flag_frm %}
+            <img src="https://flagcdn.com/16x12/{{ flag_frm }}.png" width="20" height="15" alt="Flag">
+          {% endif %}
+          <input type="text" class="form-control" id="from" name="from">
+        </div>
+        <div class="col-3">
+          <label for="to">To</label>
+          {% if flag_to %}
+            <img src="https://flagcdn.com/16x12/{{ flag_to }}.png" width="20" height="15" alt="Flag">
+          {% endif %}
+          <input type="text" class="form-control" id="to" name="to">
+        </div>
+      </div>
+      <br>
+      <div class="row d-flex justify-content-center">
+        <div class="col d-flex justify-content-center">
+          <input type="submit" class="btn btn-info" href="/index" value="Convert">
+        </div>
+      </div>
+    </form>
+
+    <br>
+
+    <div class="row d-flex justify-content-center font-weight-bold">
+      {% if response is float %}
+        <h4>
+        1 USD is equal to {{ response }} {{ to }}
+        </h4>
+      {% else %}
+        <h4>{{ response }}</h4>
+      {% endif %}
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
